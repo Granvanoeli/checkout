@@ -1,0 +1,25 @@
+{% extends "checkout/base.html" %}
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+{% block bodyblock %}
+<h1>{{ list.name }}</h1>
+    <hr>
+<ul>
+{% for item in list.item_set.all %}
+    <li>{{ item.item_text }}
+        {% if item.done == True %}
+        <span class="glyphicon glyphicon-check"></span>
+        {% else %}
+        <span class="glyphicon glyphicon-unchecked"></span>
+        {% endif %}
+    </li>
+{% endfor %}
+</ul>
+{% endblock %}
+</body>
+</html>
